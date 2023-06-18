@@ -51,16 +51,54 @@ try {
 
         // create a UserTable object and use it to retrieve 
         // the users
-        $connection = DB::getConnection();
-        $userTable = new UserTable($connection);
-        $user = $userTable->getUserByUsername($username);
+        $servername = "localhost";
+        $user_name = "root";
+        $pass_word = "";
+        $dbname = "wec";
+        $connection = mysqli_connect($servername,$user_name,$pass_word,$dbname);
+        //$connection = new PDO("mysql:host=$servername;dbname=$dbname", $user_name, $password);
+
+        // Set PDO error mode to exception (optional)
+
+        //$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Create the UserTable object with the local connection
+       
+
+        //$userTable = new UserTable($connection);        
+
+        // Retrieve user data by username
+
+        $user = "SELECT username FROM usertable WHERE username = '$_POST[username]'";
+        $rs    = mysqli_query($connection, $user);
+        $da    = mysqli_fetch_array($rs, MYSQLI_NUM);
+        if ($da[0] > 1) {
+            $errors['username'] = "Username already registered";
+            echo "Username Already in Exists<br/>";
+        }
+
+        else {
+            $sql = "INSERT INTO `usertable`(`username`, `password`, `cpassword`) VALUES ('$username','$password','$cpassword')";
+
+            if (mysqli_query($connection, $sql)) {
+                echo "Registered successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+            }
+            mysqli_close($connection);
+        }
+        // In this modified code, we are using the PDO extens
+
+        // $connection = DB::getConnection();
+        // $userTable = new UserTable($connection);
+        // $user = $userTable->getUserByUsername($username);
 
         // since password fields match, see if the username
         // has already been registered - if it is then throw
         // and exception
-        if ($user != null) {
-            $errors['username'] = "Username already registered";
-        }
+        // if ($user != null) {
+        //     $errors['username'] = "Username already registered";
+        // }
     }
     
     if (!empty($errors)) {
@@ -71,11 +109,13 @@ try {
     // a new User object, add it to the database using the
     // UserTable object, and store it in the session array
     // using the key 'user'
-    $user = new User(null, $username, $password, "user");
-    $id = $userTable->insert($user);
-    $user->setId($id);
-    $_SESSION['user'] = $user;
-    
+
+    // $user = "INSERT INTO `usertable`(`username`, `password`, `cpassword`) VALUES ('$username','$password','$cpassword')";
+    // // $user = new User(null, $username, $password, "user");
+    // //$id = $userTable->insert($user);
+    // //$user->setId($id);
+    $_SESSION['username'] = $username;
+    $_SESSION['password'] = $password;    
     // now the user is registered and logged in so redirect
     // them the their home page
     // Note the user is redirected to home.php rather than

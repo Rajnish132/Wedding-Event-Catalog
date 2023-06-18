@@ -45,14 +45,18 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <form>
+                <form action="cont.php" class ="form-group" method="POST">
                     <div class="form-group">
                         <label for="Title">Title:</label>
-                        <input type="text" name="title" id="Title" class="form-control">
+                        <input type="text" name="title" id="Title" class="form-control" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input type="Email" name="Email" id="Email" class="form-control" required="">
                     </div>
                     <div class="form-group">
                         <label for="Comment">Message:</label>
-                        <textarea id="Comment" rows="10" class="form-control"></textarea>
+                        <textarea id="Comment" name="Comment" rows="10" class="form-control" required=""></textarea>
                     </div>
                     <button type="submit" class="btn btn-default pull-right">Send <span class="glyphicon glyphicon-send"></span></button>
                 </form>

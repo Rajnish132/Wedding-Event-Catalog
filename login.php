@@ -40,20 +40,30 @@ try {
 
         // create a UserTable object and use it to retrieve 
         // the users
-        $connection = DB::getConnection();
-        $userTable = new UserTable($connection);
-        $user = $userTable->getUserByUsername($username);
-
+        $servername = "localhost";
+        $user_name = "root";
+        $pass_word = "";
+        $dbname = "wec";
+        $connection = mysqli_connect($servername,$user_name,$pass_word,$dbname);
         // since password fields match, see if the username
         // has already been registered - if it is then throw
         // and exception
-        if ($user == null) {
+        $user = "SELECT username FROM usertable WHERE username = '$_POST[username]'";
+        $pass = "SELECT password FROM usertable WHERE username = '$_POST[username]'";
+        $rs    = mysqli_query($connection, $user);
+        $da    = mysqli_fetch_array($rs, MYSQLI_NUM);
+        if (MYSQLI_NUM_rows($rs) < 1) {
             $errors['username'] = "Username is not registered";
+            //echo "Username Already in Exists<br/>";
         }
+        
+        // if ($user == null) {
+        //     $errors['username'] = "Username is not registered";
+        // }
         else {
-            if ($password !== $user->getPassword()) {
-                $errors['password'] = "Password is incorrect";
-            }
+            // if ($password != '$pass') {
+            //     $errors['password'] = "Password is incorrect";
+            // }
         }
     }
     
