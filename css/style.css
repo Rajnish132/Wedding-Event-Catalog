@@ -1,7 +1,13 @@
 /*/*/*body style*/
 body {
     overflow-x: hidden;
+
 }
+
+.content{
+    background-color: #e5e5e5;
+}
+
 
 /*background image style for header*/
 .bgImage {
@@ -323,5 +329,317 @@ textarea {
     width: 72%;
     color: green;
     font-size: 16px;
+}
+
+/*css for the front page*/
+
+.welcome-template{
+    width:100%;
+}
+.welcome-template-content{
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    padding: 7% 0% 5% 0%;
+}
+.welcome-template-content h3{
+    font-size: 2.3vw;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: bold;
+}
+.our-offer{
+        margin-right: 3%;
+        margin-bottom: 1%;
+}
+.welcome-template-content p {
+        font-size: 1.3vw;
+        padding: 3% 0% 1% 0%;
+        font-family: 'Ubuntu Mono', sans-serif;
+        color: #7c7c7c;
+        line-height: 3vh;                         
+}
+.welcome-template-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: 15%;
+}
+.template-card{
+    width: 23%;
+    height: 55vh;
+    background-color: #2d3e50;
+    color:white;
+    cursor: pointer;
+}
+
+.template-card h4{
+    
+    color:#d9534f;
+    
+}
+
+.story-info h5{
+  letter-spacing: 3px;
+  color: orange;
+  font-size: 1vw;
+}
+.story-info h1{
+  font-size: 3vw;
+  font-weight: bold;
+}
+.story-info p {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+
+.template-circle-icon{
+    border-radius: 50%;
+    background-color: white;
+    width: 34%;
+    height: 20%;
+    margin: 25% 0% 20% 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.template-circle-icon  img{
+    width: 60%;
+    height: 60%;
+}
+.template-card-content{
+ text-align: center;
+
+}
+.template-card-content p{
+    line-height: 1.5;
+    padding: 5% 4% 0% 4%;
+    font-size: 1vw;
+    font-family: 'Ubuntu Mono', sans-serif;
+    color: #f0ad4e; 
+}                                            
+.template-card-content h4 {
+    font-size: 1.2vw;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: bold;
+    padding: 0% 0% 7% 0%;
+}
+.template-card:hover{
+    background-color: white;
+    color:black;
+    border:1px solid #ffc000;
+    scale:1.09;
+    transition: 1s ease-in-out 0.25s;
+}
+.template-card:hover .template-circle-icon{
+background-color: black;
+}
+
+.orange-text{
+color: #fe641cda;
+position: relative;
+animation: rotate 2s ease-in-out 0.5s;
+}
+
+@keyframes rotate{
+    0%{left:-600px};
+    50%{left:-300px}
+    100% {left:0px};
+}
+
+.our-story
+{
+  width: 100%;
+  display: flex;
+  /* border: 2px solid red; */
+  margin-top: 5%;
+}
+.our-story:hover .story-left{
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function:ease-in;
+
+}
+@keyframes example {
+  0%   {left:-150px; top:0px;}
+  25%  {left:0px; top:0px;}  
+}
+.our-story:hover .story-right{
+  position: relative;
+  animation-name: example1;
+  animation-duration: 5s;
+
+}
+.story-left{
+  /* border: 2px solid rgb(223, 152, 31); */
+  width: 50%;
+  padding: 3%;
+}
+.camera-man{
+  width: 100%;
+  background-color:#ffd482;
+  border-radius: 300px;
+  overflow: hidden;
+}
+@keyframes example1 {
+  0%   {right:-100px; top:0px;}
+  25%  {right:0px; top:0px;}  
+}
+.story-right{
+  /* border: 2px solid rgb(10, 39, 54); */
+  width: 50%;
+  padding: 4%;
+} 
+.story-info h5{
+  letter-spacing: 3px;
+  color: orange;
+  font-size: 2vw;
+  font-weight: bold;
+}
+.story-info h1{
+  font-size: 2.7vw;
+  font-weight: bold;
+  color: black;
+}
+.story-info p {
+  color: gray;
+  font-size: 1.2rem;
+}
+.success{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10%;
+}
+.journey{
+  width: 30%;
+  /* border: 1px solid peru; */
+  background-color: white;
+  padding: 5%;
+  border-radius: 10px;
+}
+.journey h1{
+  color: orange;
+  font-size: 3vw;
+  font-weight: bold;
+}
+.journey p {
+  color: gray;
+  font-size: 1rem;
+}
+.journey:hover{
+  box-shadow: 3px 4px 5px rgb(103, 102, 102);
+  scale: 110%;
+  transition-duration: 1s;
+}
+
+
+.review{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0%;
+  /* border: 2px solid green; */
+}
+.review-left{
+  width: 50%;
+  /* border: 2px solid blue; */
+  padding: 5%;
+}
+.review-right{
+  /* border: 2px solid rgb(223, 11, 8); */
+  width: 50%;
+  padding: 5%;
+}
+.attractive-guy{
+  width: 85%;
+  background-color: rgb(223, 101, 57);
+  border-radius: 300px;
+  overflow: hidden;
+  height: 85vh;
+  margin-left: 3.5vw;
+  object-fit: contain;
+}
+.review-left:hover{
+  animation-name: rotate1;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+@keyframes rotate1{
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(360deg);
+  }
+}
+.review-top{
+  width: 100%;
+  font-size: 1.5rem;
+  margin-top: 10%;
+}
+.review-top h1{
+    font-weight: bold;
+    color: black;
+    font-size: 38px;
+
+}
+
+.review-info{
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 5%;
+  padding: 5%;
+  box-shadow: 3px 3px 5px rgb(98, 97, 97);
+}
+.info-top{
+  font-size: 1.2rem;
+}
+.review-bottom{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-left{
+  width: 40%;
+}
+.bottom-right{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.n-small{
+  font-size: 1.2rem;
+}
+
+.bottom-right {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previous {
+    color: white;
+    width: 45%;
+    border-radius: 50%;
+    font-size: 3rem;
+    border: 1px solid;
+    text-align: center;
+    background-color: black;
+}
+
+
+.next {
+    color: black;
+    border-radius: 50%;
+    font-size: 3rem;
+    border: 1px solid;
+    width: 45%;
+    text-align: center;
 }
 /*---*/*/*/
